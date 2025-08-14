@@ -1,12 +1,12 @@
 function notes(){
     let acumulador = 0
+    let flag = true
 
-    for (let index = 0; index < 3; index++) { //primer vuelta = 0, segunda vuelta = 1, tercer vuelta = 2
-
+    for (let index = 0; index < 3; index++) {
         let nota = Number(prompt(`Ingrese la nota ${index + 1}:`))
-        
-        while(true){
+        flag = true
 
+        while(flag){
             if (isNaN(nota)){
                 console.log("Nota ingresada no válida")
                 nota = Number(prompt(`Ingrese la nota ${index + 1} nuevamente:`))
@@ -17,95 +17,12 @@ function notes(){
                 console.log("Debe de ingresar una nota entre 0 y 10")
                 nota = Number(prompt(`Ingrese la nota ${index + 1} nuevamente:`))
             }else{
-                acumulador += nota 
-                break;
+                acumulador += nota
+                flag = false
             }
-
         }
-        
     }
 
     const promedio = acumulador/3
-    alert("El promedio de las notas es: ",promedio)
-
+    alert("El promedio de las notas es: " + promedio)
 }
-
-
-function passwordCheck(){
-    const password  = "123abc"
-
-    while(true){
-        let passwordInput = prompt("Ingrese su contraseña:")
-        if(passwordInput == ''){
-            passwordInput = prompt("Debe de ingresar una contraseña:")
-        }else if(passwordInput !== password){
-            passwordInput = prompt("Clave incorrecta. Vuelva a intentarlo:")
-        }else{
-            alert("Clave correcta")
-            break
-        }
-    }
-}
-
-function calculator(){
-    while(true){
-        const operation = prompt("Ingrese una operacion:")
-        if(operation == '' || operation == null){
-            console.log("Debe de escribir una operación.")
-        }else if(
-            operation == '+' || operation.toLocaleLowerCase() == 'sumar' ||
-            operation == '-' || operation.toLocaleLowerCase() == 'restar' || 
-            operation == '/' || operation.toLocaleLowerCase() == 'dividir' || 
-            operation == '*' || operation.toLocaleLowerCase() == "multiplicar" ){
-
-            console.log("Operacion correcta")
-
-            let num1,num2 
-
-            while(true){
-                num1 = Number(prompt('Ingrese el primer numero:'))
-                if(isNaN(num1) || num1 == ''){
-                    console.log("Debe de ingresar un numero.")
-                }
-                else{
-                    break
-                }
-            }
-
-            while(true){
-                num2 = Number(prompt("Ingrese el segundo numero:"))
-                if(isNaN(num2) || num2 == ''){
-                    console.log("Debe de ingresar un numero.")
-                }
-                else{
-                    break
-                }
-            }
-
-            if(operation == 'sumar' || operation == '+'){
-                const add = num1 + num2
-                console.log("El resultado de la suma es:", add)
-                break
-            }else if(operation == 'restar' || operation == '-'){
-                const substract = num1 - num2
-                console.log("El resultado de la resta es:", substract)
-                break
-            }else if(operation == 'dividir' || operation == '/'){
-                const division = num1 / num2
-                console.log("El resultado de la division es:", division)
-                break
-            }else if(operation == 'multiplicar' || operation == '*'){
-                const multiply = num1 * num2
-                console.log("El resultado de la multiplicacion es:", multiply)
-                break
-            }
-
-        }else{
-            console.log("Operacion incorrecta. Vuelva a intentarlo")
-        }
-    }
-
-
-}
-
-calculator()
