@@ -1,7 +1,7 @@
 function notes(){
     let acumulador = 0
 
-    for (let index = 0; index < 3; index++) {
+    for (let index = 0; index < 3; index++) { //primer vuelta = 0, segunda vuelta = 1, tercer vuelta = 2
 
         let nota = Number(prompt(`Ingrese la nota ${index + 1}:`))
         
@@ -17,7 +17,7 @@ function notes(){
                 console.log("Debe de ingresar una nota entre 0 y 10")
                 nota = Number(prompt(`Ingrese la nota ${index + 1} nuevamente:`))
             }else{
-                acumulador += nota
+                acumulador += nota 
                 break;
             }
 
@@ -26,22 +26,23 @@ function notes(){
     }
 
     const promedio = acumulador/3
-    console.log("El promedio de las notas es: ",promedio)
+    alert("El promedio de las notas es: ",promedio)
 
 }
+
 
 function passwordCheck(){
     const password  = "123abc"
 
     while(true){
-        const passwordInput = prompt("Ingrese su contraseña:")
+        let passwordInput = prompt("Ingrese su contraseña:")
         if(passwordInput == ''){
-            console.log("Debe de escribir una contraseña.")
-        }else if(passwordInput.trim() == password){
-            console.log("Clave correcta")
-            break
+            passwordInput = prompt("Debe de ingresar una contraseña:")
+        }else if(passwordInput !== password){
+            passwordInput = prompt("Clave incorrecta. Vuelva a intentarlo:")
         }else{
-            console.log("Contraseña incorrecta, vuelva a intentarlo.")
+            alert("Clave correcta")
+            break
         }
     }
 }
@@ -53,13 +54,13 @@ function calculator(){
             console.log("Debe de escribir una operación.")
         }else if(
             operation == '+' || operation.toLocaleLowerCase() == 'sumar' ||
-            operation == '-' || operation.toLocaleLowerCase == 'restar' || 
+            operation == '-' || operation.toLocaleLowerCase() == 'restar' || 
             operation == '/' || operation.toLocaleLowerCase() == 'dividir' || 
-            operation == '*' || operation.toLocaleLowerCase == "multiplicar" ){
+            operation == '*' || operation.toLocaleLowerCase() == "multiplicar" ){
 
             console.log("Operacion correcta")
 
-            let num1,num2
+            let num1,num2 
 
             while(true){
                 num1 = Number(prompt('Ingrese el primer numero:'))
