@@ -1,12 +1,14 @@
 function notes(){
     let acumulador = 0
+    let flag = true
 
     for (let index = 0; index < 3; index++) { //primer vuelta = 0, segunda vuelta = 1, tercer vuelta = 2
 
+    for (let index = 0; index < 3; index++) {
         let nota = Number(prompt(`Ingrese la nota ${index + 1}:`))
-        
-        while(true){
+        flag = true
 
+        while(flag){
             if (isNaN(nota)){
                 console.log("Nota ingresada no válida")
                 nota = Number(prompt(`Ingrese la nota ${index + 1} nuevamente:`))
@@ -19,10 +21,10 @@ function notes(){
             }else{
                 acumulador += nota 
                 break;
+                acumulador += nota
+                flag = false
             }
-
         }
-        
     }
 
     const promedio = acumulador/3
@@ -109,3 +111,5 @@ function calculator(){
 }
 
 calculator()
+    alert("El promedio de las notas es: " + promedio)
+}
